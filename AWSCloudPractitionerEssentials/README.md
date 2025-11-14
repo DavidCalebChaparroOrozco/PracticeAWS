@@ -37,3 +37,4 @@ ideal for situations where legacy applications must remain on premises due to ma
 or regulatory requirements.
 
 ## Benefits of the AWS Cloud
+
