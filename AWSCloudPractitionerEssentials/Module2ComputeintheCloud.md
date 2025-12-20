@@ -124,3 +124,4 @@ You are **not stuck** with your first choice! If you pick a `t3.medium` and real
 **Choose the right "machine" for the "drink" (workload) you're making!**
 
 ## **How to Provision AWS Resources**
+
