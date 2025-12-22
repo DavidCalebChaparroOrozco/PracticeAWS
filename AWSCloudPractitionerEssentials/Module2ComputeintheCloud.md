@@ -291,3 +291,4 @@ Think of EC2 instances as renting cars for your computing trips. You have differ
 | **Requires physical isolation** | **Dedicated Hosts/Instances** | Renting a private garage or lot |
 | **Mission-critical & can't fail** | **Capacity Reservations** | Reserving a guaranteed parking spot |
 
+## Scaling Amazon EC2
