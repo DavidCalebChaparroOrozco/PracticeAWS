@@ -57,7 +57,7 @@ Your coffee chain is expanding. Where do you open the next shop?
 ### **The 4 Key Factors (C.P.P.F.)**
 
 Think of it like a checklist of priorities:
-![alt text](image.png)
+![alt text](ChooseARegion.png)
 **1. Compliance & Regulations (The LAW) – *NON-NEGOTIBLE***
 *   **Coffee Shop:** Some countries have strict food safety laws. You **must** follow them to open there.
 *   **In AWS:** Data privacy laws (like **GDPR in Europe**) dictate where customer data can be stored. If your business handles German financial data, you **must** choose the **Frankfurt Region**. If you work with the U.S. government, you might **need** the special **AWS GovCloud** Region.
