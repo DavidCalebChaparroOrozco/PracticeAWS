@@ -105,4 +105,4 @@ Choosing a Region is a **business decision**, not just a technical one. Use the 
 
 **C**ompliance → **P**roximity → **P**ricing → **F**eature Availability.
 
-**Start with the law, end with the cost, and always prioritize your users' experience.**
+## Diving Deeper into AWS Global Infrastructure
