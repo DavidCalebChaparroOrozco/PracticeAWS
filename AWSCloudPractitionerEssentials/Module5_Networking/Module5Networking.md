@@ -285,4 +285,3 @@ Think of your **VPC** as a **secure apartment complex**. You need to control who
 You use **both** for defense in depth. Think of **Network ACLs as the building's security** and **Security Groups as your apartment's lock**. You need both to be truly secure. This is **your responsibility** under the AWS Shared Responsibility Model to secure your resources **IN** the cloud.
 
 Remember the AWS Shared Responsibility Model? When it comes to securing the subnets and resources in your VPC with network ACLs and security groups, that is your responsibility. These components make up networking traffic protection and are critical defenses in protecting your applications IN the cloud.
-
