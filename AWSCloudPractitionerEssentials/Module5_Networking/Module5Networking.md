@@ -285,3 +285,74 @@ Think of your **VPC** as a **secure apartment complex**. You need to control who
 You use **both** for defense in depth. Think of **Network ACLs as the building's security** and **Security Groups as your apartment's lock**. You need both to be truly secure. This is **your responsibility** under the AWS Shared Responsibility Model to secure your resources **IN** the cloud.
 
 Remember the AWS Shared Responsibility Model? When it comes to securing the subnets and resources in your VPC with network ACLs and security groups, that is your responsibility. These components make up networking traffic protection and are critical defenses in protecting your applications IN the cloud.
+
+### Amazon VPC Demo
+**Amazon Networking Demo Summary: Building Your Secure Cloud Network**
+
+In this demo, we built a **secure, highly available network foundation** in AWS from scratch. Here's the simple breakdown of what we did and why.
+
+---
+
+### **The Goal: Build a Secure Coffee Shop (VPC) with Public & Private Areas**
+
+We wanted a network (VPC) with:
+*   **Public areas (subnets)** for customer-facing servers (like cashiers).
+*   **Private areas (subnets)** for secure backend servers (like baristas and databases).
+*   **High Availability:** Duplicate areas in separate physical locations (Availability Zones) so if one fails, the other keeps running.
+
+---
+
+### **Step-by-Step Guide: What We Built**
+
+#### **1. Laid the Foundation: Created the VPC**
+*   **Action:** Created a **VPC** named `My VPC`.
+*   **CIDR Block:** `10.0.0.0/16` (This defines **65,536 private IP addresses** our resources can use, all starting with `10.0.x.x`).
+*   **Analogy:** We bought a **large, empty plot of land** and fenced it off. This is our private space in the cloud.
+
+#### **2. Built the Rooms: Created Subnets in Different Buildings (AZs)**
+We built **4 rooms (subnets)** across **2 different buildings (Availability Zones)** for redundancy.
+
+| Subnet Name | Type | Availability Zone (Building) | IP Range (CIDR) | Key Setting |
+| :--- | :--- | :--- | :--- | :--- |
+| **Private-subnet-1** | Private | us-east-1a (Building A) | `10.0.1.0/24` | **NO** auto-assign public IP |
+| **Private-subnet-2** | Private | us-east-1b (Building B) | `10.0.2.0/24` | **NO** auto-assign public IP |
+| **Public-subnet-1** | Public | us-east-1a (Building A) | `10.0.3.0/24` | **YES** auto-assign public IP |
+| **Public-subnet-2** | Public | us-east-1b (Building B) | `10.0.4.0/24` | **YES** auto-assign public IP |
+
+*   **Private Subnet Rule:** Resources here **do NOT** get a public IP. They are isolated from the internet.
+*   **Public Subnet Rule:** Resources here **automatically get a public IP**, so they can be reached from the internet.
+
+**Why two of each?** For **High Availability (HA)**. If Building A (us-east-1a) has a power outage, the subnets in Building B (us-east-1b) keep your app running.
+
+#### **3. Installed the Front Door: Created & Attached the Internet Gateway**
+*   **Action:** Created an **Internet Gateway (IGW)** named `my-ig` and **attached it to our VPC**.
+*   **Analogy:** We installed a **main, public-facing door** on our plot of land. Without this door, no one from the outside world (internet) can get in or out.
+
+#### **4. Created the Signpost: Set Up the Public Route Table**
+*   **The Problem:** Just having a door (IGW) isn't enough. We need to tell traffic **how to find that door**.
+*   **The Solution:** We created a **Route Table**—a set of signposts for network traffic.
+    *   Created a route table named `public-route-table`.
+    *   Added a **route (signpost)** that says: *"Any traffic going outside the VPC (`0.0.0.0/0`), send it to the Internet Gateway (`my-ig`)."*
+*   **Connected the Signpost:** We **associated** this route table with our **two public subnets** (`Public-subnet-1` & `Public-subnet-2`).
+*   **Result:** Now, any resource (like a web server) launched in these public subnets **knows how to reach the internet**. They are truly "public."
+
+**Important Note:** Our **private subnets are NOT associated** with this public route table. They have no route to the IGW, so they remain isolated.
+
+---
+
+![alt text](AmazonVPC.png)
+
+### **What's Next? (Security & Launching Resources)**
+
+Our network is built, but it's not yet secure. The next steps would be:
+
+1.  **Add Security Groups (Instance Firewalls):** Create rules for each type of server (e.g., "Only allow HTTP traffic on port 80 to web servers").
+2.  **Add Network ACLs (Subnet Firewalls):** Add an optional extra layer of security at the subnet level.
+3.  **Launch Resources:** Now you can safely launch **EC2 instances** (web servers) into the **public subnets** and **RDS databases** into the **private subnets**.
+
+**The Big Takeaway:**
+This demo showed the **foundational best practice** for AWS networking:
+1.  **Plan your IP space (CIDR).**
+2.  **Use multiple AZs for High Availability.**
+3.  **Separate public and private resources using subnets.**
+4.  **Control internet access with Internet Gateways and Route Tables.**
