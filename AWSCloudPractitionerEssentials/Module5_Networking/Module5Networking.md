@@ -428,3 +428,4 @@ Imagine you own a famous restaurant chain, "Cloudy's Café," with kitchens world
 *   **E-commerce Site:** Uses **Route 53** for DNS, **CloudFront** to cache product images, and **Global Accelerator** to speed up the checkout API.
 
 **The Goal:** Use these **global edge services** to bring your application closer to your users, making it **faster, more reliable, and more secure**, no matter where they are in the world.
+
