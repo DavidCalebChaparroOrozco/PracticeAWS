@@ -430,4 +430,3 @@ Imagine you own a famous restaurant chain, "Cloudy's Café," with kitchens world
 **The Goal:** Use these **global edge services** to bring your application closer to your users, making it **faster, more reliable, and more secure**, no matter where they are in the world.
 
 ## Global Architectures
-
