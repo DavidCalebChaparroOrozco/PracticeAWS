@@ -130,3 +130,75 @@ It's a serverless computing service that automatically executes your code **when
 - Integrations with enterprise systems
 - Scalable, low-cost chatbots
 
+### Amazon DynamoDB
+It's a fully managed NoSQL database designed for speed, scalability, and low latency, ideal for applications requiring millisecond responses, such as chatbots.
+
+**Main features:**
+- Saving conversation state
+- Storing users, preferences, or history
+- High speed and scalability
+
+**Ideal for:**
+- Chatbots requiring context between messages
+- Recommendation systems within the bot
+- Long or personalized conversations
+
+### Amazon API Gateway
+**It's a fully managed service** that lets you **create, publish, secure, and monitor APIs** that connect your applications to your backend services, such as Amazon Lambda or Amazon Bedrock.
+
+**Main features:**
+- Create REST endpoints for chatbots.
+
+- Connect the frontend (web/app) to Lambda or Bedrock.
+
+- Manage security, throttling, and CORS.
+
+**Ideal for:**
+- Web chatbots with API calls
+- Integrating backend with frontend
+- Multichannel chatbots
+
+### Amazon S3
+It's a highly scalable and durable **object storage** service where you can store files such as images, PDFs, audio, catalogs, and any other content your chatbot needs.
+
+**Main features:**
+- Store files, documents, or logs
+- Store resources for knowledge bases
+- Integrate documents into the bot using Bedrock Edition
+
+**Ideal for:**
+- Chatbots that use their own information
+- Store documents for RAG (Resource Analysis Group)
+- Store files submitted by the user
+
+---
+
+## Practical example
+### Amazon Lex
+- Traditional
+- IAM Permissions: Create a role with basic Amazon Lex permissions
+- Lex Error Logging: Enabled / Disabled
+- Idle Session Timeout: 5 min - Select the bot name and go to All Languages
+- Add a language
+- Add an existing language
+- Wait for the bot to be created
+- Then return to where you created the bot and select Intents
+- Add a basic one, for example, "Greeting"
+- Contexts: You can add as many as you want
+- In the initial response, this is what you want the bot to say.
+
+---
+
+## Benefits
+- Continuous support without requiring on-site staff
+- Reduced operating costs
+- Consistent and standardized responses
+- Immediate scalability to meet increased demand
+- Easy integration with other systems
+
+## Basic Security for Chatbots on AWS
+
+- Use of minimal permissions (IAM) to control access
+- Data encryption in S3 and secure communications
+- API protection with keys or Amazon Cognito
+- Monitoring with CloudWatch to detect errors and unusual activity
